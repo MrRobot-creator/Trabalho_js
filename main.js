@@ -1,27 +1,33 @@
 const form = document.getElementById('form-deposito');
 
-form.addEventListener('submit',function(e) {
+function validaNome(nomeCompleto) { 
+    const nomeComoArray = nomeCompleto.split(' ');
+    return nomeComoArray.length >= 2;
+    }
+
+
+form.addEventListener('submit', function(e) {
     let formEvalido = false;
     e.preventDefault();
-    const mensagemSucesso = `Montante de valor: ${valorDeposito.value} depositando para o cliente: ${nomeBenefeciario.value} - conta: ${numeroContaBenefeciaro.value}`;
-    const valorDeposito = document.getElementById ('valor-deposito');
-    const numeroContaBenefeciaro = document.getElementById('numero-conta');
-    const nomeBenefeciario = document.getElementById('nome-benefeciario');
+
+    const valorDeposito = document.getElementById ('valordeposito');
+    const numeroContaBenefeciaro = document.getElementById('numeroconta');
+    const nomeBenefeciario = document.getElementById('nomebenefeciario');
+    const mensagemSucesso = `Montante de valor: <b>${valorDeposito.value}</b> depositando para o cliente: ${nomeBenefeciario.value} - conta: <b>${numeroContaBenefeciaro.value}</b>`;
+
+
     formEvalido = validaNome(nomeBenefeciario.value)
-    if (formEvalido) { 
-    alert(mensagemSucesso);
+    if (formEvalido) {  
+    document.querySelector('success-message').innerHTML = mensagemSucesso; 
 
     nomeBenefeciario.value = '';
     numeroContaBenefeciaro.value = '';
     valorDeposito.value = '';
+    mensagemSucesso.value = '';
 
-    } else { 
+} else { 
     alert("o nome não esta completo");
     }
 })
 
-function validaNome(nomeCompleto) { 
-    const nomeComoArray = nomeCompleto.trim().split(/\s+/);
-    return nomeComoArray.length >= 2;
-}
 console.log(form);
