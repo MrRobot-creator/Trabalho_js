@@ -10,10 +10,10 @@ form.addEventListener('submit', function(e) {
     let formEvalido = false;
     e.preventDefault();
 
-    const valorDeposito = document.getElementById ('valordeposito');
+    const valorDeposito = document.getElementById ('Valordeposito');
     const numeroContaBenefeciaro = document.getElementById('numeroconta');
-    const nomeBenefeciario = document.getElementById('nomebenefeciario');
-    const mensagemSucesso = `Montante de valor: <b>${valorDeposito.value}</b> depositando para o cliente: ${nomeBenefeciario.value} - conta: <b>${numeroContaBenefeciaro.value}</b>`;
+    const nomeBenefeciario = document.getElementById('nomeBenefeciario');
+    const mensagemSucesso = `Montante de valor: <b>${Valordeposito.value}</b> depositando para o cliente: ${nomeBenefeciario.value} - conta: <b>${numerocontaBenefeciaro.value}</b>`;
 
 
     formEvalido = validaNome(nomeBenefeciario.value)
@@ -21,8 +21,8 @@ form.addEventListener('submit', function(e) {
     document.querySelector('success-message').innerHTML = mensagemSucesso; 
 
     nomeBenefeciario.value = '';
-    numeroContaBenefeciaro.value = '';
-    valorDeposito.value = '';
+    numerocontaBenefeciaro.value = '';
+    Valordeposito.value = '';
     mensagemSucesso.value = '';
 
 } else { 
